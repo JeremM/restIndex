@@ -1,16 +1,16 @@
-# This is a sample Python script.
+import logging
+from flaskr.routes import count
+from init.getdata import initrawfiles
+from flask import Flask
 
-# Press Maj+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+app = Flask(__name__)
+app.register_blueprint(count)
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.INFO)
+    logging.info("Starting ...")
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    initrawfiles()
+
+    app.run(debug=True)
