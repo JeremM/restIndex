@@ -3,8 +3,8 @@ from flask import Blueprint, jsonify, request, Response
 from init.getdata import getmemoryindex
 import logging
 
-count = Blueprint('count', __name__)
-popular = Blueprint('popular', __name__)
+count = Blueprint("count", __name__)
+popular = Blueprint("popular", __name__)
 
 api_prefix = "/1/queries/"
 indexed_data = getmemoryindex()
@@ -13,14 +13,14 @@ indexed_data = getmemoryindex()
 def countA(requestprefix):
     logging.debug(f"prefix received {requestprefix}")
     distinctqueries = getqueriesfromprefix(requestprefix).drop_duplicates()
-    return jsonify(len(distinctqueries.index))
+    return jsonify(count=len(distinctqueries.index))
 
 @count.route(f"{api_prefix}/popular/<requestprefix>")
 def popularA(requestprefix):
-    topn = int(request.args.get('size'))
+    topn = int(request.args.get("size"))
     result = getqueriesfromprefix(requestprefix).groupby(["Request"])["Request"].count().sort_values(ascending=False)[0:topn]
     print(result.to_json())
-    return Response(result.to_json(), mimetype='application/json')
+    return Response(result.to_json(), mimetype="application/json")
 
 def gethigherbound(lowerbound):
     lastindex = len(lowerbound) - 1

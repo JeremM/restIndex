@@ -8,8 +8,8 @@ app.register_blueprint(count)
 app.register_blueprint(popular)
 
 
-if __name__ == '__main__':
-    logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.INFO)
+if __name__ == "__main__":
+    logging.basicConfig(format="%(levelname)s:%(message)s", level=logging.INFO)
     logging.info("Starting ...")
 
     initrawfiles()

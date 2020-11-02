@@ -33,12 +33,12 @@ def initrawfiles():
 
     if not os.path.isfile(tsv_filepath):
         logging.info("tsv file not present. extracting")
-        with gzip.open(gz_filepath, 'rb') as f_in:
-            with open(tsv_filepath, 'wb') as f_out:
+        with gzip.open(gz_filepath, "rb") as f_in:
+            with open(tsv_filepath, "wb") as f_out:
                 shutil.copyfileobj(f_in, f_out)
         logging.info("tsv file extracted")
     else:
         logging.info("tsv file ok")
 
 def getmemoryindex():
-    return pd.read_csv(tsv_filepath, sep='\t', index_col=0, names=["Request"])
+    return pd.read_csv(tsv_filepath, sep="\t", index_col=0, names=["Request"])
