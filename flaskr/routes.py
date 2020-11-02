@@ -6,7 +6,6 @@ count = Blueprint("count", __name__)
 popular = Blueprint("popular", __name__)
 
 api_prefix = "/1/queries/"
-indexed_data = getmemoryindex()
 
 @count.route(f"{api_prefix}/count/<requestprefix>")
 def countA(requestprefix):
@@ -29,4 +28,5 @@ def gethigherbound(lowerbound):
     return result
 
 def getqueriesfromprefix(prefix):
+    indexed_data = getmemoryindex()
     return indexed_data.loc[(indexed_data.index >= prefix) & (indexed_data.index < gethigherbound(prefix))]
