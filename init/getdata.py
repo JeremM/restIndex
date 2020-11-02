@@ -1,7 +1,7 @@
-import logging
 import gzip
-import shutil
+import logging
 import pandas as pd
+import shutil
 
 gz_filename = "hn_logs.tsv.gz"
 data_dir = "data_dir/"

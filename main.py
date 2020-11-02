@@ -1,7 +1,7 @@
-import logging
+from flask import Flask
 from flaskr.routes import count, popular
 from init.getdata import initrawfiles
-from flask import Flask
+import logging
 
 app = Flask(__name__)
 app.register_blueprint(count)

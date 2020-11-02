@@ -1,5 +1,4 @@
 from flask import Blueprint, jsonify, request, Response
-# import pandas as pd
 from init.getdata import getmemoryindex
 import logging
 

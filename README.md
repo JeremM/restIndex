@@ -3,10 +3,11 @@
 # To install dependencies
 `pip install -r requirements.txt`
 
+## To run the web server
 
-## To run web server
+`python ./main.py`
 
-# Choices
+For the first start, the dataset will be downloaded and extracted.
 
-## Style
-Double quote for String
+Then go to (for example) :
+`http://127.0.0.1:5000/1/queries/count/2015-08-01%2000:04`
